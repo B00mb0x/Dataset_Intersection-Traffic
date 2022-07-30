@@ -1,0 +1,65 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage[colorinlistoftodos, textsize=footnotesize]{todonotes}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{pgf-pie} %Pie charts
+\usepackage{pgfplots} %plots
+\pgfplotsset{compat = newest}
+\usetikzlibrary{pgfplots.groupplots}
+\usepgfplotslibrary{dateplot}
+\usepackage{caption}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Data Descriptor: Traffic on an Intersection\\
+%{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
+%should not be used
+}
+%\thanks{Identify applicable funding agency here. If none, delete this.}
+%}
+
+\author{\IEEEauthorblockN{Lennard Lemmer}
+\IEEEauthorblockA{
+\textit{University of Bremen}\\
+Bremen, Germany \\
+lennard1@uni-bremen.de}
+\and
+\IEEEauthorblockN{Daniel Helms}
+\IEEEauthorblockA{
+\textit{University of Bremen}\\
+Bremen, Germany \\
+dhelms@uni-bremen.de}
+}
+\maketitle
+\begin{abstract}
+The demand for traffic data is high in different areas of research. In this paper a data set of the number of cars and trucks as well as buses, trams and motorcycles on an intersection is presented. The data set contains the number of vehicles which crossed the intersection on a per minute basis divided in the four aforementioned categories. As a technical validation an overview of the data is presented in different ways.
+\end{abstract}
+
+%\begin{IEEEkeywords}
+%WSN, LoRa, LoRaWAN, Contiki-MAC
+%\end{IEEEkeywords}
+
+\input{Section 1}
+\input{Section 2}
+\input{Section 3}
+\input{Section 4}
+%\input{Section 5}
+\input{Section 6}
+
+
+
+\bibliographystyle{abbrv}
+\bibliography{sigproc}
+\input{Section 5}
+
+
+
+\end{document}

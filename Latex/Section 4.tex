@@ -1,0 +1,75 @@
+\section{Technical validation}
+\label{sec:Technical_validation}
+
+This section provides the technical validation of the gathered data.
+Overall 2331 vehicles were counted in all four experiments. Most of them drove straight on Universitätsallee (direction 6 and direction 13), which has two lanes in each direction. As shown in Figure \ref{fig:direction_pie} $49.46\%$ drove from the Autobahn into Bremen and $36.14\%$ from Bremen towards the Autobahn. It is also noticable, that not a single vehicle traveled from Otto-Hahn-Allee to Bibliotheksstraße (direction 9).
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}
+\pie[explode = 0.1, text = legend]{
+    2.11/Direction 1,
+    0.17/Direction 2,	
+    1.80/Direction 3, 
+    0.56/Direction 4, 
+    1.07/Direction 5, 
+    36.14/Direction 6, 
+    3.14/Direction 7, 
+    1.20/Direction 8, 
+    0.00/Direction 9, 
+    0.56/Direction 10, 
+    0.43/Direction 11, 
+    1.55/Direction 12,	
+    49.46/Direction 13, 
+    1.80/Direction 14}
+\end{tikzpicture}
+%\captionof{figure}{Proportion of vehicles driving in each direction}
+\caption{Proportion of vehicles driving in each direction}
+\label{fig:direction_pie}
+\end{center}
+\end{figure}
+Out of the 2327 vehicles $2.32\%$ were buses and $1.89\%$ were trams as shown in Table \ref{tbl:no_vehicles}. Only six motorcycles were counted, since in high traffic sometimes motorcycles were not separately marked. Cars and trucks were counted as private vehicles, which made up $95.53\%$ of all vehicles.\\
+
+\begin{tabular}{ |p{4em}|p{3em}|p{3em}|p{3em}|p{5em}|}
+ \hline
+ & Private & Buses & Trams & Motorcycles\\
+ \hline
+ Absolute & 2223 & 54 & 44 & 6\\
+ \hline
+ Percentage & 95.53\% & 2.32\% & 1.89\% & 0.26\% \\
+ \hline
+\end{tabular}
+\captionof{table}{Number and percentage of each vehicle type across all experiments}
+\label{tbl:no_vehicles}
+~\\
+Figure \ref{fig:vehicle_types} shows the number of each vehicle types in each experiment. Experiments 3 and 4 which were both conducted on a Friday at the same time show similar numbers of private vehicles, buses and Trams. Also experiment 2 has comparable numbers of private vehicles and buses and only a slightly higher number of trams. Only experiment 1 sees much higher numbers of private vehicles, probably because it was conducted an hour earlier and therefore more people were on their way to work.\\
+
+\pgfplotstableread{Vehicle_Numbers.txt}{\table}
+\begin{tikzpicture}
+%\begin{axis}[xtick distance = 1]
+\begin{semilogyaxis}[
+    group style={
+        %group name=my plots,
+        %group size=1 by 2,
+        xlabels at=edge bottom,
+        xticklabels at=edge bottom,
+        vertical sep=0pt},
+        width = \linewidth,
+        %axis lines = middle,
+        xmin = 0.5, xmax = 4.5,
+        legend style={at={(0.95,0.5)},anchor=south east},
+        xlabel = {Experiment No.},
+        ylabel = {Number of Vehicles}]
+        %legend pos = center west]
+
+\addplot[blue, only marks, mark = x] table [x = {x}, y = {Private}] {\table};
+\addplot[red, only marks, mark = star] table [x = {x}, y = {Tram}] {\table};
+\addplot[green, only marks, mark = +] table [x = {x}, y = {Bus}] {\table};
+\addplot[orange, only marks, mark = triangle] table [x = {x}, y = {Motorcycle}] {\table};
+
+\legend{Private,Tram, Bus, Motorcycle}
+\end{semilogyaxis}
+\end{tikzpicture}
+\captionof{figure}{Number of different vehicle types in each of the four experiments}
+\label{fig:vehicle_types}
+~\\
+Finally it is noteworthy that a lot of cars came in bulk, the main reason for this are either the traffic light on this intersection or traffic lights on previous intersections. This behavior cannot be observed using the digital data in the Google sheet, because it just describes the cars per minute, but in the physical data sheets in the appendix the accurate times are shown.

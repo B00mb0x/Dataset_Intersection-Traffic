@@ -1,0 +1,5 @@
+x   Private	Tram	Bus	Motorcycle
+1   693	12	16	0
+2   490	9	17	2
+3   515	11	10	0
+4   525 12	11	4
